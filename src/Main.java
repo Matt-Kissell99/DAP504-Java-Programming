@@ -1,13 +1,16 @@
+import java.util.Random;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world");
+    public static void main (String[] args) {
+        Random rand = new Random();
+        int tournamentIdentifier = rand.nextInt(2000);
 
-        Car carObj = new Car("Orange", 4);
-        Car carObj2 = new Car("red", 5);
+        System.out.println("Tournament " + tournamentIdentifier + " has begun");
+        Tournament newTournament = new Tournament();
+        newTournament.playerDetails();
 
-        System.out.println("The colour of you car is:" + carObj.colour);
-        System.out.println("The number of wheels for your car is:" + carObj.wheels);
-        System.out.println("The number of wheels for your car is:" + carObj2.wheels);
+        System.out.println("Players Entered:");
+
 
 
     }
