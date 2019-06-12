@@ -13,8 +13,20 @@ public class Player {
         this.entered = entered;
     }
 
-    public String getPlayerDetails() {
-        return "Hello";
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getSkillLevel() {
+        return skillLevel;
     }
 
 }
