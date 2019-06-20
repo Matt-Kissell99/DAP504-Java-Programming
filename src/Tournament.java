@@ -33,4 +33,8 @@ public class Tournament {
             tournamentPlayers.add(player);
         }
     }
+
+    public ArrayList<Player> getTournamentPlayers() {
+        return tournamentPlayers;
+    }
 }
