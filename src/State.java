@@ -1,6 +1,6 @@
 public enum State {
-    ROUNDOF16 ("RoundOf16"),
     KNOCKOUT ("Knockout"),
+    ROUNDOF16 ("RoundOf16"),
     SEMIFINAL ("SemiFinal"),
     FINAL ("Final");
 
