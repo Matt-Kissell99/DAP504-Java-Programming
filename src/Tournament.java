@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class Tournament {
 
+    public int numberOfPlayers;
+
     ArrayList<Player> tournamentPlayers = new ArrayList<Player>();
 
     public void generatePlayers() {
@@ -19,9 +21,10 @@ public class Tournament {
             {add("Beginner"); add("Intermediate"); add("Advanced");}
         };
 
+        this.setPlayerNumbers();
 
 
-        for (int i = 0; i < 32; i++){
+        for (int i = 0; i < numberOfPlayers; i++){
             Random rand = new Random();
             String firstName = firstNames.get(rand.nextInt(firstNames.size()));
             String lastName = lastNames.get(rand.nextInt(firstNames.size()));
@@ -29,12 +32,26 @@ public class Tournament {
             String skillLevel = skillLevels.get(rand.nextInt(skillLevels.size()));
 
 
-            Player player = new Player(firstName, lastName, age, skillLevel, true);
+            Player player = new Player(firstName, lastName, age, skillLevel, true, 0, 0);
             tournamentPlayers.add(player);
         }
     }
 
     public ArrayList<Player> getTournamentPlayers() {
         return tournamentPlayers;
+    }
+
+    public int getRoundSize() {
+        return tournamentPlayers.size();
+    }
+
+    public void setPlayerNumbers() {
+        Input PlayerNumbers = new Input();
+        int tournamentPlayers = PlayerNumbers.numberOfPlayers();
+        this.numberOfPlayers = tournamentPlayers;
+    }
+
+    public int getPlayerNumbers() {
+        return numberOfPlayers;
     }
 }
