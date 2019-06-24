@@ -2,24 +2,24 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Round {
+public class Round implements RoundStructure {
     public int roundNumber;
     public String roundName;
+    int playersCounted;
 
-    public void generateRound(int roundNumber) {
+    public void generateRound(int roundNumber, Tournament currentTournament) {
         this.roundNumber = roundNumber;
-        if(roundNumber == 1) {
-            String returnedRound = this.getOf16Round();
-            this.roundName = returnedRound;
-        } else if (roundNumber == 2) {
-            String returnedRound = this.getKnockoutRound();
-            this.roundName = returnedRound;
-        } else if(roundNumber == 3) {
-            String returnedRound = this.getSemiFinalRound();
-            this.roundName = returnedRound;
-        } else {
-            String returnedRound = this.getFinalRound();
-            this.roundName = returnedRound;
+        this.playersCounted = currentTournament.getRoundSize();
+        System.out.println(playersCounted);
+        if (playersCounted > 32) {
+            roundName = this.getKnockoutRound();
+            System.out.println(roundName);
+        } else if (playersCounted >= 16 && playersCounted <= 32) {
+            roundName = this.getOf16Round();
+        } else if(playersCounted == 4) {
+            roundName = this.getSemiFinalRound();
+        } else if(playersCounted == 2) {
+            roundName = this.getFinalRound();
         }
     }
 
@@ -43,14 +43,18 @@ public class Round {
         return roundName;
     }
 
-    public void assignOpponents() {
-        Tournament firstRoundMatches = new Tournament();
-
-        ArrayList firstPlayers = firstRoundMatches.getTournamentPlayers();
-        Collections.shuffle( firstPlayers );
-        firstPlayers.forEach((Player) ->
-        System.out.println(player.firstName + " " + player.lastName + " - Age: " + player.age + ", Skill Level: " + player.skillLevel);
-        });
+    public int getRoundNumber() {
+        return roundNumber;
     }
+
+//    public void assignOpponents() {
+//        Tournament firstRoundMatches = new Tournament();
+//
+//        ArrayList firstPlayers = firstRoundMatches.getTournamentPlayers();
+//        Collections.shuffle( firstPlayers );
+//        firstPlayers.forEach((Player) ->
+//        System.out.println(Player.firstName + " " + player.lastName + " - Age: " + player.age + ", Skill Level: " + player.skillLevel);
+//        });
+//    }
 
 }
