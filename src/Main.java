@@ -1,13 +1,28 @@
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world");
+import java.util.ArrayList;
+import java.util.Random;
 
-        Car carObj = new Car("Orange", 4);
-        Car carObj2 = new Car("red", 5);
+public class Main  {
+    public static void main (String[] args) {
+        Random rand = new Random();
+        int tournamentIdentifier = rand.nextInt(2000);
 
-        System.out.println("The colour of you car is:" + carObj.colour);
-        System.out.println("The number of wheels for your car is:" + carObj.wheels);
-        System.out.println("The number of wheels for your car is:" + carObj2.wheels);
+        System.out.println("Tournament " + tournamentIdentifier + " has begun");
+        Tournament newTournament = new Tournament();
+        newTournament.generatePlayers();
+
+        System.out.println("Players Entered:");
+
+        newTournament.tournamentPlayers.forEach(player -> {
+            System.out.println(player.firstName + " " + player.lastName + " - Age: " + player.age + ", Skill Level: " + player.skillLevel);
+        });
+
+        System.out.println("-------------------------------");
+        Input userInput = new Input();
+        userInput.startTournament();
+        System.out.println("-------------------------------");
+        Round firstRound = new Round();
+        firstRound.assignOpponents();
+
 
 
     }
