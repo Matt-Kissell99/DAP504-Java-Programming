@@ -10,7 +10,7 @@ public class Main  {
         Tournament newTournament = new Tournament();
         newTournament.generatePlayers();
 
-        System.out.println("Players Entered:");
+        System.out.println(newTournament.getPlayerNumbers() + " " + "Players have been entered:");
 
         newTournament.tournamentPlayers.forEach(player -> {
             System.out.println(player.firstName + " " + player.lastName + " - Age: " + player.age + ", Skill Level: " + player.skillLevel);
@@ -18,10 +18,10 @@ public class Main  {
 
         System.out.println("-------------------------------");
         Input userInput = new Input();
-        userInput.startTournament();
-        System.out.println("-------------------------------");
         Round firstRound = new Round();
-        firstRound.assignOpponents();
+        userInput.startTournament(newTournament, firstRound);
+        System.out.println("-------------------------------");
+
 
 
 
