@@ -16,6 +16,13 @@ public class Main  {
             System.out.println(player.firstName + " " + player.lastName + " - Age: " + player.age + ", Skill Level: " + player.skillLevel);
         });
 
+        System.out.println("-------------------------------");
+        Input userInput = new Input();
+        userInput.startTournament();
+        System.out.println("-------------------------------");
+        Round firstRound = new Round();
+        firstRound.assignOpponents();
+
 
 
     }
