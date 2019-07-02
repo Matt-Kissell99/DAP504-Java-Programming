@@ -6,8 +6,9 @@ public class Player {
     boolean entered;
     int won;
     int lost;
+    int totalPoints;
 
-    public Player(String firstName, String lastName, int age, String skillLevel, boolean entered, int won, int lost) {
+    public Player(String firstName, String lastName, int age, String skillLevel, boolean entered, int won, int lost, int totalPoints) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -15,6 +16,7 @@ public class Player {
         this.entered = entered;
         this.won = won;
         this.lost = lost;
+        this.totalPoints = totalPoints;
     }
 
     public String getFirstName() {
@@ -41,4 +43,7 @@ public class Player {
         return lost;
     }
 
+    public int getTotalPoints() {
+        return totalPoints;
+    }
 }
