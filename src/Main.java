@@ -21,7 +21,8 @@ public class Main  {
         Round firstRound = new Round();
         userInput.startTournament(newTournament, firstRound);
         System.out.println("-------------------------------");
-
+        Match firstMatches = new Match();
+        firstMatches.assignOpponents(newTournament.getTournamentPlayers());
 
 
 
