@@ -4,8 +4,8 @@ public class Match {
     ArrayList<Match> roundMatches = new ArrayList<Match>();
     private Player Player1;
     private Player Player2;
-    public int player1Score;
-    public int player2Score;
+    public int player1MatchScore;
+    public int player2MatchScore;
     private String matchResult;
 
 
