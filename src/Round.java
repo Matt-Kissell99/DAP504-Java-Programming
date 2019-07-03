@@ -47,14 +47,4 @@ public class Round implements RoundStructure {
         return roundNumber;
     }
 
-//    public void assignOpponents() {
-//        Tournament firstRoundMatches = new Tournament();
-//
-//        ArrayList firstPlayers = firstRoundMatches.getTournamentPlayers();
-//        Collections.shuffle( firstPlayers );
-//        firstPlayers.forEach((Player) ->
-//        System.out.println(Player.firstName + " " + player.lastName + " - Age: " + player.age + ", Skill Level: " + player.skillLevel);
-//        });
-//    }
-
 }
