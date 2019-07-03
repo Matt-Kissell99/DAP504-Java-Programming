@@ -23,8 +23,10 @@ public class Main  {
         System.out.println("-------------------------------");
         Match firstMatches = new Match();
         firstMatches.assignOpponents(newTournament.getTournamentPlayers());
-
-
-
+        if (userInput.startMatches(firstRound)) {
+            firstMatches.playMatches();
+        } else {
+            userInput.startMatches(firstRound);
+        }
     }
 }
