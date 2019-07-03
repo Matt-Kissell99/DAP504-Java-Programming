@@ -41,6 +41,13 @@ public class Match {
             System.out.println(Match.getPlayer1().getFirstName() + " " + Match.getPlayer1().getLastName() + " " + "VS " + Match.getPlayer2().firstName + " " + Match.getPlayer2().getLastName());
         });
     }
+
+    public void playMatches() {
+        this.roundMatches.forEach(Match -> {
+            Games playGames = new Games();
+            playGames.playGames(Match);
+        });
+    }
 }
 
 
