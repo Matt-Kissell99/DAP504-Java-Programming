@@ -22,7 +22,7 @@ public class Games {
 
     public Player playGames(Match currentMatch) {
         String commentary = currentMatch.getPlayer1().getFirstName() + " " + currentMatch.getPlayer1().getLastName() + " " + "VS " + currentMatch.getPlayer2().firstName + " " + currentMatch.getPlayer2().getLastName();
-        String game1Commentary = this.playfirstGame(commentary);
+        String game1Commentary = this.playFirstGame(commentary);
         String game2Commentary = this.playSecondGame(game1Commentary);
         if(player1GamesWon == 2 || player2GamesWon == 2) {
             if(player1GamesWon > player2GamesWon) {
@@ -44,7 +44,7 @@ public class Games {
         }
     }
 
-    public String playfirstGame(String commentary) {
+    public String playFirstGame(String commentary) {
         this.gameNumber = ++gameNumber;
         Random winner1Decider = new Random();
         int winner1 = winner1Decider.nextInt((maxGenerator - minGenerator) + 1) + minGenerator;
