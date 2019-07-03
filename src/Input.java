@@ -30,4 +30,14 @@ public class Input {
 
     }
 
+    public boolean startMatches(Round round) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Do you wish to start the matches for round" + " " + round.getRoundNumber() + " - " + round.getRoundName() + " (yes/no) :  ");
+        String startMatch = input.nextLine();
+        if (startMatch.equals("yes")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
