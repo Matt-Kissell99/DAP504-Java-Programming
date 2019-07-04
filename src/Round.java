@@ -7,14 +7,14 @@ public class Round implements RoundStructure {
     public String roundName;
     int playersCounted;
 
-    public void generateRound(int roundNumber, Tournament currentTournament) {
+    public void generateRound(int roundNumber, ArrayList<Player> roundSize) {
         this.roundNumber = roundNumber;
-        this.playersCounted = currentTournament.getRoundSize();
+        this.playersCounted = roundSize.size();
         System.out.println(playersCounted);
         if (playersCounted > 32) {
             roundName = this.getKnockoutRound();
             System.out.println(roundName);
-        } else if (playersCounted >= 16 && playersCounted <= 32) {
+        } else if (playersCounted > 4 && playersCounted <= 32) {
             roundName = this.getOf16Round();
         } else if(playersCounted == 4) {
             roundName = this.getSemiFinalRound();
