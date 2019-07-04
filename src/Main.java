@@ -19,7 +19,7 @@ public class Main  {
         System.out.println("-------------------------------");
         Input userInput = new Input();
         Round firstRound = new Round();
-        userInput.startTournament(newTournament, firstRound);
+        userInput.startTournament(firstRound, newTournament);
         System.out.println("-------------------------------");
         Match firstMatches = new Match();
         firstMatches.assignOpponents(newTournament.getTournamentPlayers());
