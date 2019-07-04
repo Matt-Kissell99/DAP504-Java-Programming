@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public interface RoundStructure {
 
-    void generateRound(int roundNumber, Tournament currentTournament);
+    void generateRound(int roundNumber, ArrayList<Player> roundSize);
 
 //    void assignOpponents();
 
