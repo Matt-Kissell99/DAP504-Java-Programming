@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
@@ -16,32 +17,32 @@ public class Input {
 
     }
 
-    public Round startTournament(Tournament newTournament, Round firstRound) {
+    public Round startTournament(Round firstRound, Tournament currentTournament) {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         System.out.println("Do you wish to start the first round? (yes/no) :  ");
         String start = reader.nextLine();
         if (start.equals("yes")) {
-            firstRound.generateRound(1, newTournament);
+            firstRound.generateRound(1, currentTournament.getTournamentPlayers());
             System.out.println("-------------------------------");
             System.out.println(firstRound.getRoundName() + " - Round " + (firstRound.getRoundNumber()));
         } else if (start.equals("no")) {
             System.exit(0);
         } else if (!start.equals("yes") || !start.equals("no")) {
-            startTournament(newTournament, firstRound);
+            startTournament(firstRound, currentTournament);
         }
 
         return firstRound;
 
     }
 
-    public boolean startMatches(Round round) {
+    public void startMatches(Round round) {
         Scanner input = new Scanner(System.in);
         System.out.println("Do you wish to start the matches for round" + " " + round.getRoundNumber() + " - " + round.getRoundName() + " (yes/no) :  ");
         String startMatch = input.nextLine();
         if (startMatch.equals("yes")) {
-            return true;
+            return;
         } else {
-            return false;
+            this.startMatches(round);
         }
     }
 }
