@@ -27,7 +27,7 @@ public class Main  {
 
         ArrayList<Player> roundWinners = firstMatches.playMatches();
         int roundNumber = 1;
-        while(roundWinners.size() > 2) {
+        while(roundWinners.size() >= 2) {
             ++roundNumber;
             Round round = new Round();
             round.generateRound(roundNumber, roundWinners);
