@@ -1,7 +1,9 @@
 public enum State {
     KNOCKOUT ("Knockout"),
-    ROUNDOF16 ("RoundOf16"),
-    SEMIFINAL ("SemiFinal"),
+    LAST32 ("Last 32"),
+    LAST16 ("Last 16"),
+    QUARTERFINAL("Quarter Final"),
+    SEMIFINAL ("Semi Final"),
     FINAL ("Final");
 
     public String roundStatus;
