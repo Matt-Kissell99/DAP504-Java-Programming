@@ -23,10 +23,25 @@ public class Main  {
         System.out.println("-------------------------------");
         Match firstMatches = new Match();
         firstMatches.assignOpponents(newTournament.getTournamentPlayers());
-        if (userInput.startMatches(firstRound)) {
-            firstMatches.playMatches();
-        } else {
-            userInput.startMatches(firstRound);
+        userInput.startMatches(firstRound);
+
+        ArrayList<Player> roundWinners = firstMatches.playMatches();
+        int roundNumber = 1;
+        while(roundWinners.size() > 2) {
+            ++roundNumber;
+            Round round = new Round();
+            round.generateRound(roundNumber, roundWinners);
+            System.out.println("-------------------------------");
+            System.out.println(round.getRoundName() + " - Round " + (round.getRoundNumber()));
+            System.out.println("-------------------------------");
+            Match matches = new Match();
+            matches.assignOpponents(roundWinners);
+            userInput.startMatches(round);
+
+            ArrayList<Player> newWinners = matches.playMatches();
+            roundWinners.clear();
+            roundWinners = (ArrayList<Player>)newWinners.clone();
+            newWinners.clear();
         }
     }
 }
