@@ -27,12 +27,12 @@ public class Match {
 
     public void assignOpponents(ArrayList<Player> roundPlayers) {
         int count;
-        for(count = 0; count < roundPlayers.size() - 2; count+= 2) {
+        for(count = 2; count <= roundPlayers.size(); count+= 2) {
             Match roundMatch = new Match();
-            Player firstPlayer = roundPlayers.get(count + 1);
+            Player firstPlayer = roundPlayers.get(count - 2);
             roundMatch.setPlayer1(firstPlayer);
 
-            Player secondPlayer = roundPlayers.get(count + 2);
+            Player secondPlayer = roundPlayers.get(count - 1);
             roundMatch.setPlayer2(secondPlayer);
             roundMatches.add(roundMatch);
         }
