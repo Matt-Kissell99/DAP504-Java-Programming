@@ -1,8 +1,16 @@
+import com.sun.java.accessibility.util.GUIInitializedListener;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Main  {
     public static void main (String[] args) {
+        Overview GUI = new Overview();
+        GUI.initialiseGUI();
+        GUI.startListener();
+
         Random rand = new Random();
         int tournamentIdentifier = rand.nextInt(2000);
 
