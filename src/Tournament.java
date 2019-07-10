@@ -6,6 +6,7 @@ public class Tournament {
     public int numberOfPlayers;
 
     ArrayList<Player> tournamentPlayers = new ArrayList<Player>();
+    ArrayList<Player> eliminatedPlayers = new ArrayList<>();
 
     public void generatePlayers() {
         ArrayList<String> firstNames = new ArrayList<String>() {
