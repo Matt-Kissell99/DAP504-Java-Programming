@@ -4,10 +4,11 @@ import java.util.Scanner;
 public class Input {
     public int numberOfPlayers() {
         Scanner numberReader = new Scanner(System.in);  // Reading from System.in
-        System.out.println("How many players do you want to enter (max 64):  ");
+        System.out.println("How many players do you want to enter (4, 8, 16, 32, or 64):  ");
         int inputPlayers = numberReader.nextInt();
 
         if (inputPlayers > 64) {
+            System.out.println("Please try and enter a valid number (4, 8, 16, 32, or 64)");
             numberOfPlayers();
         }
         return inputPlayers;
