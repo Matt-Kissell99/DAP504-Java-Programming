@@ -62,4 +62,20 @@ public class Player {
     public String getPlayerStatus() {
         return playerStatus;
     }
+
+    public void setWon(int increment) {
+        this.won = this.won + increment;
+    }
+
+    public void setLost(int increment) {
+        this.lost = this.lost + increment;
+    }
+
+    public void setGamesPlayed(int increment) {
+        this.gamesPlayed = this.gamesPlayed + increment;
+    }
+
+    public void setPlayerStatus(String playerStatus) {
+        this.playerStatus = playerStatus;
+    }
 }
