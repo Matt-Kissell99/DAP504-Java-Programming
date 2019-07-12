@@ -56,4 +56,12 @@ public class Tournament {
     public int getPlayerNumbers() {
         return numberOfPlayers;
     }
+
+    public void addEliminatedPlayers(Player eliminatedPlayer) {
+        eliminatedPlayers.add(eliminatedPlayer);
+    }
+
+    public void addRemainingPlayers(Player progressedPlayer) {
+        remainingPlayers.add(progressedPlayer);
+    }
 }
