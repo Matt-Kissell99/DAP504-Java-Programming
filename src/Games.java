@@ -20,7 +20,7 @@ public class Games {
         return player2GamesWon;
     }
 
-    public Player playGames(Match currentMatch) {
+    public Player playGames(Match currentMatch, Tournament elimination) {
         String commentary = currentMatch.getPlayer1().getFirstName() + " " + currentMatch.getPlayer1().getLastName() + " " + "VS " + currentMatch.getPlayer2().firstName + " " + currentMatch.getPlayer2().getLastName();
         String game1Commentary = this.playFirstGame(commentary);
         String game2Commentary = this.playSecondGame(game1Commentary);
