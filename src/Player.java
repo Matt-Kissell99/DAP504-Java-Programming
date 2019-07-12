@@ -6,9 +6,11 @@ public class Player {
     boolean entered;
     int won;
     int lost;
-    int totalPoints;
+    int gamesPlayed;
+    String ratio;
+    String playerStatus;
 
-    public Player(String firstName, String lastName, int age, String skillLevel, boolean entered, int won, int lost, int totalPoints) {
+    public Player(String firstName, String lastName, int age, String skillLevel, boolean entered, int won, int lost, int gamesPlayed, String ratio, String playerStatus) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -16,7 +18,9 @@ public class Player {
         this.entered = entered;
         this.won = won;
         this.lost = lost;
-        this.totalPoints = totalPoints;
+        this.gamesPlayed = gamesPlayed;
+        this.ratio = ratio;
+        this.playerStatus = playerStatus;
     }
 
     public String getFirstName() {
@@ -43,7 +47,19 @@ public class Player {
         return lost;
     }
 
-    public int getTotalPoints() {
-        return totalPoints;
+    public int getGamesPlayed() {
+        return gamesPlayed;
+    }
+
+    public String getRatio() {
+        float games = this.getGamesPlayed();
+        float totalWins = this.getWon();
+        float finalRatio = (totalWins / games) * 100;
+        String ratio = String.format ("%.2f", finalRatio) + "%";
+        return ratio;
+    }
+
+    public String getPlayerStatus() {
+        return playerStatus;
     }
 }
