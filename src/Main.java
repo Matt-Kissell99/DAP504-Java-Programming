@@ -33,23 +33,27 @@ public class Main  {
         firstMatches.assignOpponents(newTournament.getTournamentPlayers());
         userInput.startMatches(firstRound);
 
-        ArrayList<Player> roundWinners = firstMatches.playMatches(newTournament);
+        firstMatches.playMatches(newTournament);
+        newTournament.remainingPlayers.clear();
+        newTournament.remainingPlayers = (ArrayList<Player>)newTournament.roundWaitingPlayers.clone();
+        newTournament.roundWaitingPlayers.clear();
+
         int roundNumber = 1;
-        while(roundWinners.size() >= 2) {
+        while(newTournament.getRemainingPlayers().size() >= 2) {
             ++roundNumber;
             Round round = new Round();
-            round.generateRound(roundNumber, roundWinners);
+            round.generateRound(roundNumber, newTournament.getRemainingPlayers());
             System.out.println("-------------------------------");
             System.out.println(round.getRoundName() + " - Round " + (round.getRoundNumber()));
             System.out.println("-------------------------------");
             Match matches = new Match();
-            matches.assignOpponents(roundWinners);
+            matches.assignOpponents(newTournament.getRemainingPlayers());
             userInput.startMatches(round);
 
-            ArrayList<Player> newWinners = matches.playMatches(newTournament);
-            roundWinners.clear();
-            roundWinners = (ArrayList<Player>)newWinners.clone();
-            newWinners.clear();
+            matches.playMatches(newTournament);
+            newTournament.remainingPlayers.clear();
+            newTournament.remainingPlayers = (ArrayList<Player>)newTournament.roundWaitingPlayers.clone();
+            newTournament.roundWaitingPlayers.clear();
         }
     }
 }
