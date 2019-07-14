@@ -42,14 +42,12 @@ public class Match {
         });
     }
 
-    public ArrayList<Player> playMatches(Tournament elimination) {
-        ArrayList<Player> matchWinners = new ArrayList<Player>();
+    public void playMatches(Tournament elimination) {
         this.roundMatches.forEach(Match -> {
             Games playGames = new Games();
             Player matchWinner = playGames.playGames(Match, elimination);
-            matchWinners.add(matchWinner);
+            elimination.addroundWaitingPlayers(matchWinner);
         });
-        return matchWinners;
     }
 }
 
