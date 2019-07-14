@@ -1,14 +1,14 @@
 public class Player {
-    String firstName;
-    String lastName;
-    int age;
-    String skillLevel;
-    boolean entered;
-    int won;
-    int lost;
-    int gamesPlayed;
-    String ratio;
-    String playerStatus;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String skillLevel;
+    private boolean entered;
+    private int won;
+    private int lost;
+    private int gamesPlayed;
+    private String ratio;
+    private String playerStatus;
 
     public Player(String firstName, String lastName, int age, String skillLevel, boolean entered, int won, int lost, int gamesPlayed, String ratio, String playerStatus) {
         this.firstName = firstName;
