@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Games {
+abstract class Games {
     public int gameNumber;
     public int player1GamesWon = 0;
     public int player2GamesWon = 0;
@@ -21,7 +21,7 @@ public class Games {
     }
 
     public Player playGames(Match currentMatch, Tournament elimination) {
-        String commentary = currentMatch.getPlayer1().getFirstName() + " " + currentMatch.getPlayer1().getLastName() + " " + "VS " + currentMatch.getPlayer2().firstName + " " + currentMatch.getPlayer2().getLastName();
+        String commentary = currentMatch.getPlayer1().getFirstName() + " " + currentMatch.getPlayer1().getLastName() + " " + "VS " + currentMatch.getPlayer2().getFirstName() + " " + currentMatch.getPlayer2().getLastName();
         String game1Commentary = this.playFirstGame(commentary);
         String game2Commentary = this.playSecondGame(game1Commentary);
         if(player1GamesWon == 2 || player2GamesWon == 2) {
