@@ -6,6 +6,8 @@ public class Tournament {
     public int numberOfPlayers;
 
     ArrayList<Player> tournamentPlayers = new ArrayList<Player>();
+    ArrayList<Player> roundWaitingPlayers = new ArrayList<Player>();
+    ArrayList<Player> remainingPlayers = new ArrayList<Player>();
     ArrayList<Player> eliminatedPlayers = new ArrayList<Player>();
 
     public void generatePlayers() {
@@ -54,5 +56,17 @@ public class Tournament {
 
     public void addEliminatedPlayers(Player eliminatedPlayer) {
         eliminatedPlayers.add(eliminatedPlayer);
+    }
+
+    public void addroundWaitingPlayers(Player progressedPlayer) {
+        roundWaitingPlayers.add(progressedPlayer);
+    }
+
+    public ArrayList<Player> getRoundWaitingPlayers() {
+        return roundWaitingPlayers;
+    }
+
+    public ArrayList<Player> getRemainingPlayers() {
+        return remainingPlayers;
     }
 }
