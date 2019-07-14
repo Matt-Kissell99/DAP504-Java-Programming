@@ -20,25 +20,61 @@ public class Games {
         return player2GamesWon;
     }
 
-    public Player playGames(Match currentMatch) {
+    public Player playGames(Match currentMatch, Tournament elimination) {
         String commentary = currentMatch.getPlayer1().getFirstName() + " " + currentMatch.getPlayer1().getLastName() + " " + "VS " + currentMatch.getPlayer2().firstName + " " + currentMatch.getPlayer2().getLastName();
         String game1Commentary = this.playFirstGame(commentary);
         String game2Commentary = this.playSecondGame(game1Commentary);
         if(player1GamesWon == 2 || player2GamesWon == 2) {
             if(player1GamesWon > player2GamesWon) {
                 System.out.println(game2Commentary.concat(" (The winner is:" + " " + currentMatch.getPlayer1().getFirstName() + " " + currentMatch.getPlayer1().getLastName() + ")"));
+
+                currentMatch.getPlayer1().setGamesPlayed(1);
+                currentMatch.getPlayer2().setGamesPlayed(1);
+
+                currentMatch.getPlayer1().setWon(1);
+                currentMatch.getPlayer2().setLost(1);
+                currentMatch.getPlayer2().setPlayerStatus(Status.ELIMINATED.getPlayerStatus());
+
+                elimination.addEliminatedPlayers(currentMatch.getPlayer2());
                 return currentMatch.getPlayer1();
             } else {
                 System.out.println(game2Commentary.concat(" (The winner is:" + " " + currentMatch.getPlayer2().getFirstName() + " " + currentMatch.getPlayer2().getLastName() + ")"));
+
+                currentMatch.getPlayer1().setGamesPlayed(1);
+                currentMatch.getPlayer2().setGamesPlayed(1);
+
+                currentMatch.getPlayer1().setLost(1);
+                currentMatch.getPlayer1().setPlayerStatus(Status.ELIMINATED.getPlayerStatus());
+                currentMatch.getPlayer2().setWon(1);
+
+                elimination.addEliminatedPlayers(currentMatch.getPlayer1());
                 return currentMatch.getPlayer2();
             }
         } else {
             String game3Commentary = this.playThirdGame(game2Commentary);
             if(player2GamesWon > player1GamesWon) {
                 System.out.println(game3Commentary.concat(" (The winner is:" + " " + currentMatch.getPlayer2().getFirstName() + " " + currentMatch.getPlayer2().getLastName() + ")"));
+
+                currentMatch.getPlayer1().setGamesPlayed(1);
+                currentMatch.getPlayer2().setGamesPlayed(1);
+
+                currentMatch.getPlayer1().setLost(1);
+                currentMatch.getPlayer1().setPlayerStatus(Status.ELIMINATED.getPlayerStatus());
+                currentMatch.getPlayer2().setWon(1);
+
+                elimination.addEliminatedPlayers(currentMatch.getPlayer1());
                 return currentMatch.getPlayer2();
             } else {
                 System.out.println(game3Commentary.concat(" (The winner is:" + " " + currentMatch.getPlayer1().getFirstName() + " " + currentMatch.getPlayer1().getLastName() + ")"));
+
+                currentMatch.getPlayer1().setGamesPlayed(1);
+                currentMatch.getPlayer2().setGamesPlayed(1);
+
+                currentMatch.getPlayer1().setWon(1);
+                currentMatch.getPlayer2().setLost(1);
+                currentMatch.getPlayer2().setPlayerStatus(Status.ELIMINATED.getPlayerStatus());
+
+                elimination.addEliminatedPlayers(currentMatch.getPlayer2());
                 return currentMatch.getPlayer1();
             }
         }

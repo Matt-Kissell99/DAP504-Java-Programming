@@ -21,7 +21,7 @@ public class Main  {
         System.out.println(newTournament.getPlayerNumbers() + " " + "Players have been entered:");
 
         newTournament.tournamentPlayers.forEach(player -> {
-            System.out.println(player.firstName + " " + player.lastName + " - Age: " + player.age + ", Skill Level: " + player.skillLevel);
+            System.out.println(player.getFirstName() + " " + player.getLastName() + " - Age: " + player.getAge() + ", Skill Level: " + player.getSkillLevel() + ", Status: " + player.getPlayerStatus());
         });
 
         System.out.println("-------------------------------");
@@ -33,7 +33,7 @@ public class Main  {
         firstMatches.assignOpponents(newTournament.getTournamentPlayers());
         userInput.startMatches(firstRound);
 
-        ArrayList<Player> roundWinners = firstMatches.playMatches();
+        ArrayList<Player> roundWinners = firstMatches.playMatches(newTournament);
         int roundNumber = 1;
         while(roundWinners.size() >= 2) {
             ++roundNumber;
@@ -46,7 +46,7 @@ public class Main  {
             matches.assignOpponents(roundWinners);
             userInput.startMatches(round);
 
-            ArrayList<Player> newWinners = matches.playMatches();
+            ArrayList<Player> newWinners = matches.playMatches(newTournament);
             roundWinners.clear();
             roundWinners = (ArrayList<Player>)newWinners.clone();
             newWinners.clear();

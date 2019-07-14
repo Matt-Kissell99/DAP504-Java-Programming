@@ -6,7 +6,7 @@ public class Tournament {
     public int numberOfPlayers;
 
     ArrayList<Player> tournamentPlayers = new ArrayList<Player>();
-    ArrayList<Player> eliminatedPlayers = new ArrayList<>();
+    ArrayList<Player> eliminatedPlayers = new ArrayList<Player>();
 
     public void generatePlayers() {
         ArrayList<String> firstNames = new ArrayList<String>() {
@@ -33,17 +33,13 @@ public class Tournament {
             String skillLevel = skillLevels.get(rand.nextInt(skillLevels.size()));
 
 
-            Player player = new Player(firstName, lastName, age, skillLevel, true, 0, 0, 0);
+            Player player = new Player(firstName, lastName, age, skillLevel, true, 0, 0, 0, "0%", Status.ACTIVE.getPlayerStatus());
             tournamentPlayers.add(player);
         }
     }
 
     public ArrayList<Player> getTournamentPlayers() {
         return tournamentPlayers;
-    }
-
-    public int getRoundSize() {
-        return tournamentPlayers.size();
     }
 
     public void setPlayerNumbers() {
@@ -54,5 +50,9 @@ public class Tournament {
 
     public int getPlayerNumbers() {
         return numberOfPlayers;
+    }
+
+    public void addEliminatedPlayers(Player eliminatedPlayer) {
+        eliminatedPlayers.add(eliminatedPlayer);
     }
 }
