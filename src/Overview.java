@@ -32,8 +32,19 @@ public class Overview {
             playerStatistics.setText("No Players found");
         } else {
             playerStatistics.setText("");
+            playerStatistics.append("Current Active Players:\n");
+            playerStatistics.append("------------------------------------------------------------------------\n");
+
             currentEvent.getRemainingPlayers().forEach(player -> {
-                playerStatistics.append(player.getFirstName() + " " + player.getLastName() + " - Age: " + player.getAge() + ", Skill Level: " + player.getSkillLevel() + ", Status: " + player.getPlayerStatus() + "\n");
+                playerStatistics.append(player.getFirstName() + " " + player.getLastName() + " - Won: " + player.getWon() + " | Lost: " + player.getLost() + " | Win ratio: " + player.getRatio() + " | Status: " + player.getPlayerStatus() + "\n");
+            });
+
+            playerStatistics.append("------------------------------------------------------------------------\n");
+            playerStatistics.append("Eliminated Players:\n");
+            playerStatistics.append("------------------------------------------------------------------------\n");
+
+            currentEvent.getEliminatedPlayers().forEach(player -> {
+                playerStatistics.append(player.getFirstName() + " " + player.getLastName() + " - Won: " + player.getWon() + " | Lost: " + player.getLost() + " | Win ratio: " + player.getRatio() + " | Status: " + player.getPlayerStatus() + "\n");
             });
         }
     }
