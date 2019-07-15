@@ -9,7 +9,7 @@ public class Main  {
     public static void main (String[] args) { //Application begins here
         Tournament newTournament = new Tournament(); //Creating the tournament with new Tournament class object
         Overview GUI = new Overview(newTournament); //New GUI object
-        GUI.initialiseGUI(newTournament); //Initialising the GUI to display
+        JFrame mainFrame = GUI.initialiseGUI(newTournament); //Initialising the GUI to display
 
         Random rand = new Random();
         int tournamentIdentifier = rand.nextInt(2000);
@@ -37,10 +37,12 @@ public class Main  {
         newTournament.remainingPlayers = (ArrayList<Player>)newTournament.roundWaitingPlayers.clone(); //Adding all the remaining players into the new ArrayList
         newTournament.roundWaitingPlayers.clear(); //Clear the first ArrayList for next round, to ensure that the next rounds can use the remainingPlayers ArrayList for matches
         GUI.checkPlayerStatistics(newTournament); //Update GUI statistics to show eliminated players + remaining players
+        mainFrame.setContentPane(GUI.mainPanel);
 
         int roundNumber = 1; //Round counter to generate round names in Round.java
         while(newTournament.getRemainingPlayers().size() >= 2) { //While loop to represent each round (while the number of remaining players is greater than or equal to 2 - final)
             GUI.checkPlayerStatistics(newTournament); //Update GUI statistics to show eliminated players + remaining players
+            mainFrame.setContentPane(GUI.mainPanel);
             ++roundNumber; //Increment the round number by 1
             Round round = new Round(); //Create a new round each time
             round.generateRound(roundNumber, newTournament.getRemainingPlayers()); //Get round name using round counter and the number of remaining players
@@ -56,6 +58,8 @@ public class Main  {
             newTournament.remainingPlayers = (ArrayList<Player>)newTournament.roundWaitingPlayers.clone(); //Adding all the remaining players into the new ArrayList
             newTournament.roundWaitingPlayers.clear(); //Clear the first ArrayList for next round, to ensure that the next rounds can use the remainingPlayers ArrayList for matches
         }
+        GUI.checkPlayerStatistics(newTournament); //Update GUI statistics to show eliminated players + remaining players
+        mainFrame.setContentPane(GUI.mainPanel);
         System.out.println("------------------------------------------------------------------------------------------------");
         //Print the winner A.K.A The Reigning champion of the tournament
         System.out.println("THE REIGNING CHAMPION OF TOURNAMENT " + tournamentIdentifier + " " + "IS: " + newTournament.getRemainingPlayers().get(0).getFirstName() + " " + newTournament.getRemainingPlayers().get(0).getLastName());
