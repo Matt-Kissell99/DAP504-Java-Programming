@@ -1,14 +1,10 @@
 import java.util.ArrayList;
 
-public interface RoundStructure {
+public interface RoundStructure { //Interface for any class wanting to implement a specific new round structure
 
-    void generateRound(int roundNumber, ArrayList<Player> roundSize);
+    void generateRound(int roundNumber, ArrayList<Player> roundSize); //Must have a method for generating round names
 
-//    void assignOpponents();
+    int getRoundNumber(); //Must have a getter method to get the round name
 
-    int getRoundNumber();
-
-    String getRoundName();
-
-
+    String getRoundName(); //Must have a getter method to get the round name
 }
