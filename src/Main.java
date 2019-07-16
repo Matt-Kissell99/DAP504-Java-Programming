@@ -1,7 +1,4 @@
-import com.sun.java.accessibility.util.GUIInitializedListener;
-
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,12 +9,12 @@ public class Main  {
         JFrame mainFrame = GUI.initialiseGUI(newTournament); //Initialising the GUI to display
 
         Random rand = new Random();
-        int tournamentIdentifier = rand.nextInt(2000);
+        int tournamentIdentifier = rand.nextInt(2000); //Random tournament number being generated
 
-        System.out.println("Tournament " + tournamentIdentifier + " has begun"); //Random tournament number being generated
+        System.out.println("Tournament " + tournamentIdentifier + " has begun"); //Random tournament number being printed
         newTournament.generatePlayers(); //Calling method to generate all players
 
-        System.out.println(newTournament.getPlayerNumbers() + " " + "Players have been entered:");
+        System.out.println(newTournament.getPlayerNumbers() + " " + "Players have been entered:"); //printing how many players have been entered
 
         newTournament.tournamentPlayers.forEach(player -> { //foreach player that has been created, print them out to the terminal
             System.out.println(player.getFirstName() + " " + player.getLastName() + " - Age: " + player.getAge() + ", Skill Level: " + player.getSkillLevel() + ", Status: " + player.getPlayerStatus());
@@ -30,19 +27,19 @@ public class Main  {
         System.out.println("-------------------------------");
         Match firstMatches = new Match(); //First round matches creation
         firstMatches.assignOpponents(newTournament.getTournamentPlayers()); //Calling a method in Match.java to assign opponents for every player using the players generated
-        userInput.startMatches(firstRound); //Asking the user whether or not they wish to start the first
+        userInput.startMatches(firstRound); //Asking the user whether or not they wish to start the first matches
 
         firstMatches.playMatches(newTournament); //Begin the first round of matches
         newTournament.remainingPlayers.clear(); //Ensure remaining players ArrayList is empty to add winners only
         newTournament.remainingPlayers = (ArrayList<Player>)newTournament.roundWaitingPlayers.clone(); //Adding all the remaining players into the new ArrayList
         newTournament.roundWaitingPlayers.clear(); //Clear the first ArrayList for next round, to ensure that the next rounds can use the remainingPlayers ArrayList for matches
         GUI.checkPlayerStatistics(newTournament); //Update GUI statistics to show eliminated players + remaining players
-        mainFrame.setContentPane(GUI.mainPanel);
+        mainFrame.setContentPane(GUI.mainPanel); //Set mainPanel to display new statistics
 
         int roundNumber = 1; //Round counter to generate round names in Round.java
-        while(newTournament.getRemainingPlayers().size() >= 2) { //While loop to represent each round (while the number of remaining players is greater than or equal to 2 - final)
+        while(newTournament.getRemainingPlayers().size() >= 2) { //While loop to represent each round (while the number of remaining players is greater than or equal to 2 (final))
             GUI.checkPlayerStatistics(newTournament); //Update GUI statistics to show eliminated players + remaining players
-            mainFrame.setContentPane(GUI.mainPanel);
+            mainFrame.setContentPane(GUI.mainPanel); //Set mainPanel to display new statistics
             ++roundNumber; //Increment the round number by 1
             Round round = new Round(); //Create a new round each time
             round.generateRound(roundNumber, newTournament.getRemainingPlayers()); //Get round name using round counter and the number of remaining players
@@ -51,7 +48,7 @@ public class Main  {
             System.out.println("-------------------------------");
             Match matches = new Match(); //Create new matches for each new round
             matches.assignOpponents(newTournament.getRemainingPlayers()); //Assign opponents each round
-            userInput.startMatches(round); //Ask the user if they wish to begin the round
+            userInput.startMatches(round); //Ask the user if they wish to begin the round/matches
 
             matches.playMatches(newTournament); //Begin the matches for each particular round
             newTournament.remainingPlayers.clear(); //Ensure remaining players ArrayList is empty to add winners only
@@ -59,7 +56,7 @@ public class Main  {
             newTournament.roundWaitingPlayers.clear(); //Clear the first ArrayList for next round, to ensure that the next rounds can use the remainingPlayers ArrayList for matches
         }
         GUI.checkPlayerStatistics(newTournament); //Update GUI statistics to show eliminated players + remaining players
-        mainFrame.setContentPane(GUI.mainPanel);
+        mainFrame.setContentPane(GUI.mainPanel); //Set mainPanel to display new statistics
         System.out.println("------------------------------------------------------------------------------------------------");
         //Print the winner A.K.A The Reigning champion of the tournament
         System.out.println("THE REIGNING CHAMPION OF TOURNAMENT " + tournamentIdentifier + " " + "IS: " + newTournament.getRemainingPlayers().get(0).getFirstName() + " " + newTournament.getRemainingPlayers().get(0).getLastName());
