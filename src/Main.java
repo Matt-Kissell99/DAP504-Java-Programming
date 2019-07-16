@@ -60,5 +60,6 @@ public class Main  {
         System.out.println("------------------------------------------------------------------------------------------------");
         //Print the winner A.K.A The Reigning champion of the tournament
         System.out.println("THE REIGNING CHAMPION OF TOURNAMENT " + tournamentIdentifier + " " + "IS: " + newTournament.getRemainingPlayers().get(0).getFirstName() + " " + newTournament.getRemainingPlayers().get(0).getLastName());
+        System.out.println("Please close the existing tournament window to start a new tournament......");
     }
 }
