@@ -22,7 +22,7 @@ public class Overview {
 
     public void checkPlayerStatistics(Tournament currentEvent) {
         if(currentEvent.getRemainingPlayers().size() == 0) { //If there are no players, return the sentence below
-            playerStatistics.setText("No Players found");
+            playerStatistics.setText("First round has not been started - No Players found!");
         } else { //Else if return all of the active players and the eliminated players
             playerStatistics.setText("");
             playerStatistics.append("Current Active Players:\n");
