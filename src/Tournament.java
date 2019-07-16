@@ -58,7 +58,7 @@ public class Tournament {
         eliminatedPlayers.add(eliminatedPlayer);
     }
 
-    public ArrayList<Player> getEliminatedPlayers() {
+    public ArrayList<Player> getEliminatedPlayers() { //Getter method for eliminated players
         return eliminatedPlayers;
     }
 
