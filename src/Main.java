@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+//DAP504 Java Programming (Student number = 1701968)
 public class Main  {
     public static void main (String[] args) { //Application begins here
         Tournament newTournament = new Tournament(); //Creating the tournament with new Tournament class object
