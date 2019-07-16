@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
@@ -29,17 +28,17 @@ public class Input {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         System.out.println("Do you wish to start the first round? (y/n) :  ");
         String start = reader.nextLine();
-        if (start.equals("y")) {
-            firstRound.generateRound(1, currentTournament.getTournamentPlayers());
+        if (start.equals("y")) { //if the response is equal to "y" generate the round
+            firstRound.generateRound(1, currentTournament.getTournamentPlayers()); //Generate first round based on arguments
             System.out.println("-------------------------------");
-            System.out.println(firstRound.getRoundName() + " - Round " + (firstRound.getRoundNumber()));
-        } else if (start.equals("n")) {
+            System.out.println(firstRound.getRoundName() + " - Round " + (firstRound.getRoundNumber())); //Print the round name and number
+        } else if (start.equals("n")) { //else if start equals to "n" then exit program
             System.exit(0);
-        } else if (!start.equals("y") || !start.equals("n")) {
+        } else if (!start.equals("y") || !start.equals("n")) { //elseif start does not equal to "y" or "n" then loop back to the start of the input
             startTournament(firstRound, currentTournament);
         }
 
-        return firstRound;
+        return firstRound; //return the first round generated
 
     }
 
